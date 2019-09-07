@@ -18,7 +18,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 $ git clone https://github.com/ihuaylupo/manning-smia-chapter1
 
 # Go into the repository
-$ cd SimpleApplication
+$ cd manning-smia-chapter1/simple-application
 
 # Install dependencies
 $ mvn install
