@@ -1,8 +1,8 @@
-## Spring Microservices in Action - Second Edition. Chapter 2
+## Spring Microservices in Action - Second Edition. Chapter 3
 
 ## Introduction
 
-Code used on the 2nd Chapter of the Spring Microservices in Action - Second Edition Manning publication book. This code contains the Licensing Microservice.
+Code used on the 3rd Chapter of the Spring Microservices in Action - Second Edition Manning publication book. This code contains the Licensing Microservice.
 
 ## Initial Configuration
 
@@ -18,7 +18,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 $ git clone https://github.com/ihuaylupo/manning-smia
 
 # Go into the repository
-$ cd chapter2/licensing-service
+$ cd chapter3/licensing-service
 
 # Install dependencies
 $ mvn install
