@@ -8,6 +8,7 @@ Code used on the 4th Chapter of the Spring Microservices in Action - Second Edit
 
 1.	Apache Maven (http://maven.apache.org)
 2.	Git Client (http://git-scm.com)
+3.  Docker(https://www.docker.com/products/docker-desktop)
 
 ## How To Use
 
