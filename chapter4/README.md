@@ -18,7 +18,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 $ git clone https://github.com/ihuaylupo/manning-smia
 
 # Go into the repository
-$ cd chapter3/licensing-service
+$ cd chapter4/licensing-service
 
 # Install dependencies
 $ mvn install
