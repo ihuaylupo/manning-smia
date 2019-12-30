@@ -8,6 +8,7 @@ Code used on the 4th Chapter of the Spring Microservices in Action - Second Edit
 
 1.	Apache Maven (http://maven.apache.org)
 2.	Git Client (http://git-scm.com)
+3.  Docker(https://www.docker.com/products/docker-desktop)
 
 ## How To Use
 
@@ -18,7 +19,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 $ git clone https://github.com/ihuaylupo/manning-smia
 
 # Go into the repository
-$ cd chapter3/licensing-service
+$ cd chapter4/licensing-service
 
 # Install dependencies
 $ mvn install
