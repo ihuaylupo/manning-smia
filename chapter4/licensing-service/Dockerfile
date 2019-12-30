@@ -1,6 +1,6 @@
 #stage 1
 #Start with a base image containing Java runtime
-FROM openjdk:8-jdk-alpine as build
+FROM openjdk:11-slim as build
 
 # Add Maintainer Info
 LABEL maintainer="Illary Huaylupo <illaryhs@gmail.com>"
@@ -16,12 +16,10 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf /app.jar)
 
 #stage 2
 #Same Java runtime
-FROM openjdk:8-jdk-alpine
+FROM openjdk:11-slim
 
 #Add volume pointing to /tmp
 VOLUME /tmp
-
-RUN  apk update && apk upgrade && apk add netcat-openbsd
 
 #Copy unpackaged application to new container
 ARG DEPENDENCY=/target/dependency
