@@ -11,7 +11,7 @@ Code used on the 3rd Chapter of the Spring Microservices in Action - Second Edit
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Maven](https://maven.apache.org/), [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Maven](https://maven.apache.org/), [Java 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html). From your command line:
 
 ```bash
 # Clone this repository
