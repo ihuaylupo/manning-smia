@@ -5,7 +5,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.Locale;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +22,10 @@ import com.optimagrowth.license.service.LicenseService;
 
 @RestController
 @RequestMapping(value="v1/organization/{organizationId}/license")
+@AllArgsConstructor
 public class LicenseController {
 
-	@Autowired
-	private LicenseService licenseService;
+	private final LicenseService licenseService;
 
 	@RequestMapping(value="/{licenseId}",method = RequestMethod.GET)
 	public ResponseEntity<License> getLicense( @PathVariable("organizationId") String organizationId,
