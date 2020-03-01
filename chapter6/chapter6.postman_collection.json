@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "8d1c03cc-6506-4e1a-b999-04895b9db44b",
+		"name": "Spring Microservices in Action",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Organization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Ostock\",\n\t\"contactName\":\"Illary Huaylupo\",\n\t\"contactEmail\":\"illaryhs@gmail.com\",\n\t\"contactPhone\":\"888888888\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/organization/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"organization",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get License",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762/license/14e209c8-b25d-4372-a2ef-b6df57b786f5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+						"license",
+						"14e209c8-b25d-4372-a2ef-b6df57b786f5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete License",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/af09ea29-4a16-4259-b7d2-cf13d9443390",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"af09ea29-4a16-4259-b7d2-cf13d9443390"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create License",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"organizationId\":\"e43e57ea-39cf-42bf-a8a5-2126b5a36762\",\n\t\"description\":\"Software product\",\n\t\"productName\":\"Ostock\",\n\t\"licenseType\":\"complete\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update License",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"licenseId\":\"af09ea29-4a16-4259-b7d2-cf13d9443390\",\n\t\"organizationId\":\"optimaGrowth\",\n\t\"description\":\"Software development product\",\n\t\"productName\":\"Ostock-lic\",\n\t\"licenseType\":\"partial\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eureka Organization REST API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8070/eureka/apps/organization-service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"eureka",
+						"apps",
+						"organization-service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Organization",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get License with Discovery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762/license/14e209c8-b25d-4372-a2ef-b6df57b786f5/discovery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+						"license",
+						"14e209c8-b25d-4372-a2ef-b6df57b786f5",
+						"discovery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get License with RestTemplate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762/license/14e209c8-b25d-4372-a2ef-b6df57b786f5/rest",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+						"license",
+						"14e209c8-b25d-4372-a2ef-b6df57b786f5",
+						"rest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get License with Netflix feign",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e43e57ea-39cf-42bf-a8a5-2126b5a36762/license/14e209c8-b25d-4372-a2ef-b6df57b786f5/feign",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e43e57ea-39cf-42bf-a8a5-2126b5a36762",
+						"license",
+						"14e209c8-b25d-4372-a2ef-b6df57b786f5",
+						"feign"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

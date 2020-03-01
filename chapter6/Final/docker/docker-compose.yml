@@ -1,0 +1,25 @@
+version: '3'
+services:
+  configserver:
+    image: ostock/configserver:0.0.1-SNAPSHOT
+    ports:
+       - "8071:8071"
+    environment:
+      ENCRYPT_KEY: "IMSYMMETRIC"
+  database:
+    image: postgres:latest
+    ports:
+      - "5433:5433"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB:       "ostock_dev"
+  licensingservice:
+    image: ostock/licensing-service:0.0.2-SNAPSHOT
+    environment:
+        - "SPRING_PROFILES_ACTIVE=dev"
+        - SPRING_CLOUD_CONFIG_URI= "http://configserver:8071"
+    entrypoint: ["java", "-cp", "'./wait-for-it.sh configserver:8071 && app:app/lib/*'","com.optimagrowth.license.LicenseServiceApplication"] 
+    ports:
+      - "8080:8080"
+    
