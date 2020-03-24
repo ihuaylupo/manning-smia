@@ -21,8 +21,9 @@ $ git clone https://github.com/ihuaylupo/manning-smia
 # Go into the repository
 $ cd chapter4/licensing-service
 
-# Install dependencies
-$ mvn install
+# To build the code examples for Chapter 4 as a docker image, open a command-line 
+# window and execute the following command:
+$ mvn clean package dockerfile:build
 
 # Run the app using the docker-compose up command. Remember, you need to execute
 #the command on the root folder of the project where the docker-compose.yml is.
