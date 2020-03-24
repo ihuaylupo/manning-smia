@@ -14,7 +14,7 @@ Welcome to Spring Microservices in Action, Chapter 6.  Chapter 6 introduces the 
 2.	Git Client (http://git-scm.com)
 3.  Docker(https://www.docker.com/products/docker-desktop)
 
-**Important:** In this chapter we will be introducing a new service called Organization Service. You can donwload the organization and licesing service from the initial folder. That will contain all the source code required to start chapter 6.
+**Important:** In this chapter we will be introducing a new service called Organization Service. You can donwload the organization and licensing service from the initial folder. That will contain all the source code required to start chapter 6.
 
 ## How To Use
 
