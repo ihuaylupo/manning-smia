@@ -23,7 +23,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 # Clone this repository
 $ git clone https://github.com/ihuaylupo/manning-smia
 
-# Go into the repository, by chaning to the directory where you have downloaded the 
+# Go into the repository, by changing to the directory where you have downloaded the 
 # chapter 7 source code and select whether you want the initial or final configuration
 $ cd chapter7
 

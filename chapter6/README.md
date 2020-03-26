@@ -24,7 +24,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 # Clone this repository
 $ git clone https://github.com/ihuaylupo/manning-smia
 
-# Go into the repository, by chaning to the directory where you have downloaded the 
+# Go into the repository, by changing to the directory where you have downloaded the 
 # chapter 6 source code and select whether you want the initial or final configuration
 $ cd chapter6/Initial or cd chapter6/Final
 
@@ -40,7 +40,7 @@ $ docker-compose -f docker/docker-compose.yml up
 
 Will execute the [Spotify dockerfile plugin](https://github.com/spotify/dockerfile-maven) defined in the pom.xml file.  
 
-This is the first chapter we will have multiple Spring projects that need to be be built and compiled.  Running the above command at the root of the project directory will build all of the projects.  If everything builds successfully you should see a message indicating that the build was successful.
+Running the above command at the root of the project directory will build all of the projects.  If everything builds successfully you should see a message indicating that the build was successful.
 
 # The Run command
 
