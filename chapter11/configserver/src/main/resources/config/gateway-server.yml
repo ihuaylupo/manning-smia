@@ -1,0 +1,49 @@
+server:
+  port: 8072
+ 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eurekaserver:8070/eureka/
+      
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+hystrix.command.organization.execution.isolation.thread.timeoutInMilliseconds: 3000
+      
+spring:
+  zipkin:
+    baseUrl: http://zipkin:9411
+  sleuth:
+    sampler:
+      percentage: 1
+  cloud:
+    gateway:
+        routes:
+        - id: organization-service
+          uri: lb://organization-service
+          predicates:
+          - Path=/organization/**
+          filters:
+          - RewritePath=/organization/(?<path>.*), /$\{path}
+          - Hystrix=organization
+          - RemoveRequestHeader= Cookie,Set-Cookie
+        - id: licensing-service
+          uri: lb://licensing-service
+          predicates:
+          - Path=/license/**
+          filters:
+          - RewritePath=/license/(?<path>.*), /$\{path}
+          - RemoveRequestHeader= Cookie,Set-Cookie
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+        
+        
