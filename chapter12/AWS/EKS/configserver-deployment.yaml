@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configserver-deployment
+  labels:
+    app: configserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configserver
+  template:
+    metadata:
+      labels:
+        app: configserver
+    spec:
+      containers:
+      - env:
+        - name: ENCRYPT_KEY
+          value: fje83Ki8403Iod87dne7Yjsl3THueh48jfuO9j4U2hf64Lo
+        image: 81XXXXXXXX3.dkr.ecr.us-east-2.amazonaws.com/ostock/configserver:latest
+        name: configserver
+        ports:
+        - containerPort: 8071

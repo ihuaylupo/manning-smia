@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: authenticationservice
+  name: authenticationservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: authenticationservice
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/docker_backend: "true"
+        io.kompose.service: authenticationservice
+    spec:
+      containers:
+      - env:
+        - name: CONFIGSERVER_PORT
+          value: "8071"
+        - name: CONFIGSERVER_URI
+          value: http://configserver:8071
+        - name: ENCRYPT_KEY
+          value: IMSYMMETRIC
+        - name: PROFILE
+          value: dev
+        image: 81XXXXXXXX3.dkr.ecr.us-east-2.amazonaws.com/ostock/authentication-service:latest
+        imagePullPolicy: ""
+        name: authentication-service
+        ports:
+        - containerPort: 8082
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

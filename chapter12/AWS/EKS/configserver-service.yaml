@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: configserver
+spec:
+  type: NodePort
+  selector:
+    app: configserver
+  ports:
+  - name: "8071"
+    port: 8071
+    targetPort: 8071
+    nodePort: 31000

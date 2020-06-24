@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: organizationservice
+  name: organizationservice
+spec:
+  ports:
+  - name: "8081"
+    port: 8081
+    targetPort: 8081
+  selector:
+    io.kompose.service: organizationservice
+status:
+  loadBalancer: {}

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: authenticationservice
+  name: authenticationservice
+spec:
+  type: NodePort
+  ports:
+  - name: "8082"
+    port: 8082
+    targetPort: 8082
+    nodePort: 31300
+  selector:
+    io.kompose.service: authenticationservice
+status:
+  loadBalancer: {}
