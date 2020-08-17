@@ -1,7 +1,7 @@
 ## Spring Microservices in Action - Second Edition. Chapter 7
 
 # Introduction
-Welcome to Spring Microservices in Action, Chapter 7.  Chapter 7 does not introduce any new services. Instead it focuses on how to use Spring Cloud and Netflix's Hystrix project to help protect service clients from failing or poorly behaving services. This chapter will introduce you to the concepts of fail-fast service calls, bulkheads and fallbacks for when a client call fails. 
+Welcome to Spring Microservices in Action, Chapter 7.  Chapter 7 does not introduce any new services. Instead it focuses on how to use Spring Cloud and Resilience4j project to help protect service clients from failing or poorly behaving services. This chapter will introduce you to the concepts of fail-fast service calls, bulkheads and fallbacks for when a client call fails. 
 
 1.  A Spring Cloud Config server that is deployed as Docker container and can manage a services configuration information using a file system/ classpath or GitHub-based repository.
 2. A Eureka server running as a Spring-Cloud based service. This service will allow multiple service instances to register with it. Clients that need to call a service will use Eureka to lookup the physical location of the target service.

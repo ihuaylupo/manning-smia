@@ -18,6 +18,7 @@
 		<java.version>11</java.version>
 		<docker.image.prefix>ostock</docker.image.prefix>
 		<spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+		<resilience4j.version>1.5.0</resilience4j.version>
 	</properties>
 
 	<dependencies>
@@ -65,19 +66,44 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<exclusions>
+				<exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-ribbon</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.netflix.ribbon</groupId>
+                    <artifactId>ribbon-eureka</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-loadbalancer</artifactId>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		    <groupId>io.github.resilience4j</groupId>
+		    <artifactId>resilience4j-spring-boot2</artifactId>
+		    <version>${resilience4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		    <groupId>io.github.resilience4j</groupId>
+		    <artifactId>resilience4j-circuitbreaker</artifactId>
+		    <version>${resilience4j.version}</version>
 		</dependency>
+		<dependency>
+		    <groupId>io.github.resilience4j</groupId>
+		    <artifactId>resilience4j-timelimiter</artifactId>
+		    <version>${resilience4j.version}</version>
+		</dependency>
+		 <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 		<dependency>
 	      <groupId>org.springframework.cloud</groupId>
 	      <artifactId>spring-cloud-starter-oauth2</artifactId>

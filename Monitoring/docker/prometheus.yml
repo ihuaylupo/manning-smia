@@ -1,0 +1,12 @@
+global:
+  scrape_interval:     5s # Set the scrape interval to every 5 seconds.
+  evaluation_interval: 5s # Evaluate rules every 5 seconds.
+scrape_configs:
+  - job_name: 'licensingservice'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+    - targets: ['licensingservice:8080']
+  - job_name: 'organizationservice'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+    - targets: ['organizationservice:8081']

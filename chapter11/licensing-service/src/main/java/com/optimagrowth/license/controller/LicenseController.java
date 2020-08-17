@@ -4,6 +4,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +72,7 @@ public class LicenseController {
 	}
 
 	@RequestMapping(value="/",method = RequestMethod.GET)
-	public List<License> getLicenses( @PathVariable("organizationId") String organizationId) {
+	public List<License> getLicenses( @PathVariable("organizationId") String organizationId) throws TimeoutException {
 		logger.debug("Entering the license-controller  ");
 		logger.debug("LicenseServiceController Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
 		return licenseService.getLicensesByOrganization(organizationId);
