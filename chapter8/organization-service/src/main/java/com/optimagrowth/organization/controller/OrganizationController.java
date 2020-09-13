@@ -1,6 +1,6 @@
 package com.optimagrowth.organization.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.optimagrowth.organization.model.Organization;
 import com.optimagrowth.organization.service.OrganizationService;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value="v1/organization")
 public class OrganizationController {
-    @Autowired
-    private OrganizationService service;
+
+    private final OrganizationService service;
 
 
     @RequestMapping(value="/{organizationId}",method = RequestMethod.GET)
@@ -38,7 +39,7 @@ public class OrganizationController {
 
     @RequestMapping(value="/{organizationId}",method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteOrganization( @PathVariable("id") String id,  @RequestBody Organization organization) {
+    public void deleteOrganization( @PathVariable("organizationId") String id,  @RequestBody Organization organization) {
         service.delete(organization);
     }
 

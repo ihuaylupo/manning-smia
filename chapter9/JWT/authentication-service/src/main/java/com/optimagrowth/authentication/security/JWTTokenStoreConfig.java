@@ -1,6 +1,6 @@
 package com.optimagrowth.authentication.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -12,11 +12,11 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import com.optimagrowth.authentication.config.ServiceConfig;
 
+@RequiredArgsConstructor
 @Configuration
 public class JWTTokenStoreConfig {
 
-	@Autowired
-	private ServiceConfig serviceConfig;
+	private final ServiceConfig serviceConfig;
 
 	@Bean
 	public TokenStore tokenStore() {

@@ -6,9 +6,12 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
@@ -21,34 +24,17 @@ import com.optimagrowth.license.service.client.OrganizationFeignClient;
 import com.optimagrowth.license.service.client.OrganizationRestTemplateClient;
 import com.optimagrowth.license.utils.UserContextHolder;
 
-import io.github.resilience4j.bulkhead.annotation.Bulkhead;
-import io.github.resilience4j.bulkhead.annotation.Bulkhead.Type;
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
-import io.github.resilience4j.retry.annotation.Retry;
-
+@Slf4j
+@RequiredArgsConstructor
 @Service
 public class LicenseService {
 
-	@Autowired
-	MessageSource messages;
-
-	@Autowired
-	private LicenseRepository licenseRepository;
-
-	@Autowired
-	ServiceConfig config;
-
-	@Autowired
-	OrganizationFeignClient organizationFeignClient;
-
-	@Autowired
-	OrganizationRestTemplateClient organizationRestClient;
-
-	@Autowired
-	OrganizationDiscoveryClient organizationDiscoveryClient;
-
-	private static final Logger logger = LoggerFactory.getLogger(LicenseService.class);
+	private final MessageSource messages;
+	private final LicenseRepository licenseRepository;
+	private final ServiceConfig config;
+	private final OrganizationFeignClient organizationFeignClient;
+	private final OrganizationRestTemplateClient organizationRestClient;
+	private final OrganizationDiscoveryClient organizationDiscoveryClient;
 
 	public License getLicense(String licenseId, String organizationId, String clientType){
 		License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
@@ -72,15 +58,15 @@ public class LicenseService {
 
 		switch (clientType) {
 		case "feign":
-			System.out.println("I am using the feign client");
+			log.info("I am using the feign client");
 			organization = organizationFeignClient.getOrganization(organizationId);
 			break;
 		case "rest":
-			System.out.println("I am using the rest client");
+			log.info("I am using the rest client");
 			organization = organizationRestClient.getOrganization(organizationId);
 			break;
 		case "discovery":
-			System.out.println("I am using the discovery client");
+			log.info("I am using the discovery client");
 			organization = organizationDiscoveryClient.getOrganization(organizationId);
 			break;
 		default:
@@ -93,33 +79,24 @@ public class LicenseService {
 
 	public License createLicense(License license){
 		license.setLicenseId(UUID.randomUUID().toString());
-		licenseRepository.save(license);
-
-		return license.withComment(config.getExampleProperty());
+		return licenseRepository.save(license.withComment(config.getExampleProperty()));
 	}
 
 	public License updateLicense(License license){
-		licenseRepository.save(license);
-
-		return license.withComment(config.getExampleProperty());
+		return licenseRepository.save(license.withComment(config.getExampleProperty()));
 	}
 
 	public String deleteLicense(String licenseId){
-		String responseMessage = null;
-		License license = new License();
-		license.setLicenseId(licenseId);
-		licenseRepository.delete(license);
-		responseMessage = String.format(messages.getMessage("license.delete.message", null, null),licenseId);
-		return responseMessage;
-
+		licenseRepository.deleteById(licenseId);
+		return String.format(messages.getMessage("license.delete.message", null, null),licenseId);
 	}
 
 	@CircuitBreaker(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@RateLimiter(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@Retry(name = "retryLicenseService", fallbackMethod = "buildFallbackLicenseList")
-	@Bulkhead(name = "bulkheadLicenseService", type= Type.THREADPOOL, fallbackMethod = "buildFallbackLicenseList")
+	@Bulkhead(name = "bulkheadLicenseService", type= Bulkhead.Type.THREADPOOL, fallbackMethod = "buildFallbackLicenseList")
 	public List<License> getLicensesByOrganization(String organizationId) throws TimeoutException {
-		logger.debug("getLicensesByOrganization Correlation id: {}",
+		log.debug("getLicensesByOrganization Correlation id: {}",
 				UserContextHolder.getContext().getCorrelationId());
 		randomlyRunLong();
 		return licenseRepository.findByOrganizationId(organizationId);
@@ -147,7 +124,7 @@ public class LicenseService {
 			Thread.sleep(5000);
 			throw new java.util.concurrent.TimeoutException();
 		} catch (InterruptedException e) {
-			logger.error(e.getMessage());
+			log.error(e.getMessage());
 		}
 	}
 }

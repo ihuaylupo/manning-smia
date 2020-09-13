@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: eureka-server
   boot:
     admin:
       context-path: /admin

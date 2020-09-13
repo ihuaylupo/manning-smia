@@ -51,6 +51,8 @@ If everything starts correctly you should see a bunch of Spring Boot information
 # Database
 You can find the database script as well in the docker directory.
 
+see Remark chapter 5
+ 
 ## Contact
 
 I'd like you to send me an email on <illaryhs@gmail.com> about anything you'd want to say about this software.

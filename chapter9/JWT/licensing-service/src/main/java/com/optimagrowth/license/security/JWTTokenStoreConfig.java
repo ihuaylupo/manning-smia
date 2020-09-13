@@ -1,6 +1,6 @@
 package com.optimagrowth.license.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -11,11 +11,11 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import com.optimagrowth.license.config.ServiceConfig;
 
+@RequiredArgsConstructor
 @Configuration
 public class JWTTokenStoreConfig {
 
-    @Autowired
-    private ServiceConfig serviceConfig;
+    private final ServiceConfig serviceConfig;
 
     //JWT
     @Bean

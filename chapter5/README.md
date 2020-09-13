@@ -47,6 +47,9 @@ If everything starts correctly you should see a bunch of Spring Boot information
 # Database
 You can find the database script as well in the docker directory.
 
+Remark: It should be described how to initialize the database. While there is a script which can be executed, it might not be clear for the reader how to do this.
+Please have a look at the docker-compose and database.sql file. Now it's properly working
+
 ## Contact
 
 I'd like you to send me an email on <illaryhs@gmail.com> about anything you'd want to say about this software.

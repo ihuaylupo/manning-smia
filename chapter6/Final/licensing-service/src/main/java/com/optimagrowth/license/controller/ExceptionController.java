@@ -50,7 +50,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
 	/**
 	 * handleIOException - Handles all the Authentication Exceptions of the application. 
 	 *@param request
-	 *@param exception
+	 *@param e
 	 *@return ResponseEntity<ResponseWrapper>
 	 * @user ihuaylupo
 	 * @since 2018-09-12 

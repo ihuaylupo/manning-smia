@@ -9,5 +9,7 @@ import com.optimagrowth.organization.model.Organization;
 
 @Repository
 public interface OrganizationRepository extends CrudRepository<Organization,String>  {
-    public Optional<Organization> findById(String organizationId);
+
+    Optional<Organization> findById(String organizationId);
+
 }
