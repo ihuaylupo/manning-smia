@@ -7,11 +7,8 @@ spring:
   cloud:
     config:
       server:
-        #native:
-         #search-locations: classpath:/config
-        git:
-           uri: https://github.com/ihuaylupo/config.git
-    
+        native:
+          search-locations: classpath:/config    # I reverted this so that it is easier to change for the reader
 server:
   port: 8071
   

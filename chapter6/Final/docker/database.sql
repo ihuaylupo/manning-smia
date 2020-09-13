@@ -1,13 +1,14 @@
 CREATE DATABASE ostock_dev
-    WITH 
+    WITH
     OWNER = postgres
     ENCODING = 'UTF8'
     LC_COLLATE = 'en_US.UTF-8'
     LC_CTYPE = 'en_US.UTF-8'
     TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
+    CONNECTION LIMIT = -1
+    TEMPLATE template0; -- otherwise local issue with default local UTF8 vs utf8
 
-
+\c ostock_dev
 -- Table: public.organizations
 
 -- DROP TABLE public.organizations;

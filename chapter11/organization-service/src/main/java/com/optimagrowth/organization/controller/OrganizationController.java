@@ -1,8 +1,7 @@
 package com.optimagrowth.organization.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,19 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.optimagrowth.organization.model.Organization;
 import com.optimagrowth.organization.service.OrganizationService;
 
+@Slf4j
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value="v1/organization")
 public class OrganizationController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(OrganizationController.class);
-	
-    @Autowired
-    private OrganizationService service;
 
+    private final OrganizationService service;
 
     @RequestMapping(value="/{organizationId}",method = RequestMethod.GET)
     public ResponseEntity<Organization> getOrganization( @PathVariable("organizationId") String organizationId) {
-    	logger.debug("Entering the getOrganization() method for the organizationId: {}",organizationId);
+    	log.debug("Entering the getOrganization() method for the organizationId: {}",organizationId);
         return ResponseEntity.ok(service.findById(organizationId));
     }
 

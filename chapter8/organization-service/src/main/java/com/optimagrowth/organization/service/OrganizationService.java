@@ -1,34 +1,28 @@
 package com.optimagrowth.organization.service;
 
-import java.util.Optional;
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import com.optimagrowth.organization.model.Organization;
 import com.optimagrowth.organization.repository.OrganizationRepository;
 
+@Slf4j
+@RequiredArgsConstructor
 @Service
 public class OrganizationService {
 	
-	private static final Logger logger = LoggerFactory.getLogger(OrganizationService.class);
-	
-    @Autowired
-    private OrganizationRepository repository;
+    private final OrganizationRepository repository;
 
     public Organization findById(String organizationId) {
-    	Optional<Organization> opt = repository.findById(organizationId);
-        return (opt.isPresent()) ? opt.get() : null;
-    }	
+        return repository.findById(organizationId).orElse(null);
+    }
 
     public Organization create(Organization organization){
     	organization.setId( UUID.randomUUID().toString());
-        organization = repository.save(organization);
-        return organization;
-
+        return repository.save(organization);
     }
 
     public void update(Organization organization){
@@ -44,7 +38,7 @@ public class OrganizationService {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			logger.error(e.getMessage());
+			log.error(e.getMessage());
 		}
 	}
 }

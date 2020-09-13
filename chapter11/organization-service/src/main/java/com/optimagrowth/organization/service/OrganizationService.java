@@ -3,6 +3,8 @@ package com.optimagrowth.organization.service;
 import java.util.Optional;
 import java.util.UUID;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,19 +17,14 @@ import com.optimagrowth.organization.repository.OrganizationRepository;
 import brave.ScopedSpan;
 import brave.Tracer;
 
+@RequiredArgsConstructor
+@Slf4j
 @Service
 public class OrganizationService {
-	
-	private static final Logger logger = LoggerFactory.getLogger(OrganizationService.class);
-	
-    @Autowired
-    private OrganizationRepository repository;
-    
-    @Autowired
-    SimpleSourceBean simpleSourceBean;
-    
-    @Autowired
-	Tracer tracer;
+
+    private final OrganizationRepository repository;
+    private final SimpleSourceBean simpleSourceBean;
+	private final Tracer tracer;
 
     public Organization findById(String organizationId) {
     	Optional<Organization> opt = null;
@@ -37,10 +34,10 @@ public class OrganizationService {
     	simpleSourceBean.publishOrganizationChange("GET", organizationId);
     	if (!opt.isPresent()) {
     		String message = String.format("Unable to find an organization with the Organization id %s", organizationId);
-			logger.error(message);
+			log.error(message);
 			throw new IllegalArgumentException(message);	
 		}
-    	logger.debug("Retrieving Organization Info: " + opt.get().toString());
+    	log.debug("Retrieving Organization Info: " + opt.get().toString());
     	}finally {
     		newSpan.tag("peer.service", "postgres");
 			newSpan.annotate("Client received");
@@ -72,7 +69,7 @@ public class OrganizationService {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			logger.error(e.getMessage());
+			log.error(e.getMessage());
 		}
 	}
 }

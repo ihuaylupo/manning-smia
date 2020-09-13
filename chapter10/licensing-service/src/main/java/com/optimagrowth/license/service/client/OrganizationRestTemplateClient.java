@@ -1,8 +1,7 @@
 package com.optimagrowth.license.service.client;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -12,27 +11,25 @@ import com.optimagrowth.license.model.Organization;
 import com.optimagrowth.license.repository.OrganizationRedisRepository;
 import com.optimagrowth.license.utils.UserContext;
 
+@RequiredArgsConstructor
+@Slf4j
 @Component
 public class OrganizationRestTemplateClient {
-	@Autowired
-	RestTemplate restTemplate;
 
-	@Autowired
-	OrganizationRedisRepository redisRepository;
-
-	private static final Logger logger = LoggerFactory.getLogger(OrganizationRestTemplateClient.class);
+	private final RestTemplate restTemplate;
+	private final OrganizationRedisRepository redisRepository;
 
 	public Organization getOrganization(String organizationId){
-		logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
+		log.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
 
         Organization organization = checkRedisCache(organizationId);
 
         if (organization != null){
-            logger.debug("I have successfully retrieved an organization {} from the redis cache: {}", organizationId, organization);
+            log.debug("I have successfully retrieved an organization {} from the redis cache: {}", organizationId, organization);
             return organization;
         }
 
-        logger.debug("Unable to locate organization from the redis cache: {}.", organizationId);
+        log.debug("Unable to locate organization from the redis cache: {}.", organizationId);
         
 		ResponseEntity<Organization> restExchange =
 				restTemplate.exchange(
@@ -53,7 +50,7 @@ public class OrganizationRestTemplateClient {
 		try {
 			return redisRepository.findById(organizationId).orElse(null);
 		}catch (Exception ex){
-			logger.error("Error encountered while trying to retrieve organization {} check Redis Cache.  Exception {}", organizationId, ex);
+			log.error("Error encountered while trying to retrieve organization {} check Redis Cache.  Exception {}", organizationId, ex);
 			return null;
 		}
 	}
@@ -62,7 +59,7 @@ public class OrganizationRestTemplateClient {
         try {
         	redisRepository.save(organization);
         }catch (Exception ex){
-            logger.error("Unable to cache organization {} in Redis. Exception {}", organization.getId(), ex);
+            log.error("Unable to cache organization {} in Redis. Exception {}", organization.getId(), ex);
         }
     }
 }

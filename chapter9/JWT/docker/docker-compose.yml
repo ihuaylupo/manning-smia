@@ -7,7 +7,6 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB:       "ostock_dev"
     networks:
       backend:
         aliases:
@@ -17,6 +16,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql
   configserver:
     image: ostock/configserver:0.0.1-SNAPSHOT
     ports:

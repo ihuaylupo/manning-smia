@@ -19,6 +19,8 @@ By the time you are done reading this chapter you will be able to build and/or d
 
 Our PostgreSQL database and Redis service have now been moved to Amazon services.
 
+// Remark: I didn't check the source code in this chapter but only followed the setup of the AWS Cloud, which went fine in general (please check the remarks on the book for further info)
+
 You can find all of the service.yaml and deployment.yaml files in the AWS folder. Also all the required configuration to create the ELK stack EC2 instance.
 
 ## Initial Configuration

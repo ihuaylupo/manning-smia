@@ -3,18 +3,18 @@ package com.optimagrowth.license.service;
 import java.util.Locale;
 import java.util.Random;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.optimagrowth.license.model.License;
 
+@RequiredArgsConstructor
 @Service
 public class LicenseService {
 	
-	@Autowired
-	MessageSource messages;
+	private final MessageSource messages;
 
 	public License getLicense(String licenseId, String organizationId){
 		License license = new License();
