@@ -1,18 +1,4 @@
-CREATE DATABASE ostock_dev
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'en_US.UTF-8'
-    LC_CTYPE = 'en_US.UTF-8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
-
-
--- Table: public.organizations
-
--- DROP TABLE public.organizations;
-
-CREATE TABLE public.organizations
+CREATE TABLE IF NOT EXISTS public.organizations
 (
     organization_id text COLLATE pg_catalog."default" NOT NULL,
     name text COLLATE pg_catalog."default",
@@ -27,11 +13,8 @@ TABLESPACE pg_default;
 ALTER TABLE public.organizations
     OWNER to postgres;
 
--- Table: public.licenses
 
--- DROP TABLE public.licenses;
-
-CREATE TABLE public.licenses
+CREATE TABLE IF NOT EXISTS public.licenses
 (
     license_id text COLLATE pg_catalog."default" NOT NULL,
     organization_id text COLLATE pg_catalog."default" NOT NULL,
@@ -51,5 +34,3 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.licenses
     OWNER to postgres;
-
-
