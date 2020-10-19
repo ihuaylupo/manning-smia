@@ -17,24 +17,8 @@ public class OrganizationChangeHandler {
     public void loggerSink(OrganizationChangeModel organization) {
     	
         logger.debug("Received a message of type " + organization.getType());
-        
-        switch(organization.getAction()){
-            case "GET":
-                logger.debug("Received a GET event from the organization service for organization id {}", organization.getOrganizationId());
-                break;
-            case "SAVE":
-                logger.debug("Received a SAVE event from the organization service for organization id {}", organization.getOrganizationId());
-                break;
-            case "UPDATE":
-                logger.debug("Received a UPDATE event from the organization service for organization id {}", organization.getOrganizationId());
-                break;
-            case "DELETE":
-                logger.debug("Received a DELETE event from the organization service for organization id {}", organization.getOrganizationId());
-                break;
-            default:
-                logger.error("Received an UNKNOWN event from the organization service of type {}", organization.getType());
-                break;
-        }
+        logger.debug("Received a message with an event {} from the organization service for the organization id {} ", 
+        		organization.getType(), organization.getType());
     }
 
 

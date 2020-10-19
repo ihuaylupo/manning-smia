@@ -9,12 +9,6 @@ spring:
         config: 
             uri: http://configserver:8071
             
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://authenticationservice:8082/user
-    
-
 logging:
   level:
     com.netflix: WARN

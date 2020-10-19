@@ -19,7 +19,6 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -32,7 +31,6 @@ import com.optimagrowth.license.utils.UserContextInterceptor;
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableEurekaClient
-@EnableResourceServer
 //@EnableBinding(Sink.class)
 public class LicenseServiceApplication {
 	

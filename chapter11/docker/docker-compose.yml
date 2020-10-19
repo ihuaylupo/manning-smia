@@ -105,25 +105,6 @@ services:
       backend:
         aliases:
           - "redis"
-  authenticationservice:
-    image: ostock/authentication-service:0.0.1-SNAPSHOT
-    container_name: authentication-service
-    environment:
-      PROFILE: "dev"
-      CONFIGSERVER_URI: "http://configserver:8071"
-      CONFIGSERVER_PORT:   "8071"
-      ENCRYPT_KEY:       "IMSYMMETRIC"
-    depends_on:
-      database:
-        condition: service_healthy
-      configserver:
-        condition: service_started
-    ports:
-      - "8082:8082"
-    networks:
-      backend:
-        aliases:
-          - "authenticationservice"
   licensingservice:
     image: ostock/licensing-service:0.0.3-SNAPSHOT
     container_name: licensing-service
@@ -137,8 +118,6 @@ services:
       database:
         condition: service_healthy
       configserver:
-        condition: service_started
-      authenticationservice:
         condition: service_started
       kafkaserver:
         condition: service_started

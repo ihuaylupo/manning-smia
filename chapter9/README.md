@@ -1,13 +1,9 @@
 ## Spring Microservices in Action - Second Edition. Chapter 9
 
 # Introduction
-Welcome to Spring Microservices in Action, Chapter 9.  Chapter 9 demonstrates how to build security with your services using Spring Cloud Security.  In this chapter we build an OAUth2 Authentication service using OAuth2.  This chapter has two folders of code.
+Welcome to Spring Microservices in Action, Chapter 9.  Chapter 9 demonstrates how to build security with your services using Spring Cloud Security and KeyCloak.  In this chapter we build an Authentication and authorization server using KeyCloak. 
 
-1. The OAuth2 folder uses Spring Cloud Security to build a standard Spring Cloud OAuth2 service. The OAuth2 service will create an OAuth2 token for a user.  Every protected service will need to take that service and callback into the OAuth2 service to validated.
-
-2.  The JWT folder will build an OAuth2 service that uses the JavasScript Web Token (JWT) specification.   JWT provides a standard, cryptographically signed token.  With JWT services protected by OAuth2 do not need to call back into the OAuth2 services to validate the token.  Instead, they can determine if the JWT token has been tampered with and if not use its contents to validate the user. 
-
-1. A Spring Cloud based OAuth2 authentication service that can issue and validate OAuth2 tokens.  
+1. A KeyCloak Authentication and Authorization server.
 2. A Spring Cloud Config server that is deployed as Docker container and can manage a services configuration information using a file system or GitHub-based repository.
 3. A Eureka server running as a Spring-Cloud based service. This service will allow multiple service instances to register with it. Clients that need to call a service will use Eureka to lookup the physical location of the target service.
 4. A API Gateway. All of our microservices can be routed through the gateway and have pre, response and post policies enforced on the calls.
@@ -31,7 +27,7 @@ $ git clone https://github.com/ihuaylupo/manning-smia
 
 # Go into the repository, by changing to the directory where you have downloaded the 
 # chapter 9 source code and select whether you want the initial or final configuration
-$ cd chapter9/OAuth2 or cd chapter9/JWT
+$ cd chapter9
 
 # To build the code examples for Chapter 8 as a docker image, open a command-line 
 # window and execute the following command:
