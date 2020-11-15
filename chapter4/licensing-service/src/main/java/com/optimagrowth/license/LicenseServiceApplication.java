@@ -22,7 +22,7 @@ public class LicenseServiceApplication {
 		localeResolver.setDefaultLocale(Locale.US);
 		return localeResolver;
 	}
-	@Bean
+	@Bean(name = "messageSource")
 	public ResourceBundleMessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
 		messageSource.setUseCodeAsDefaultMessage(true);
