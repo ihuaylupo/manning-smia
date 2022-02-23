@@ -48,6 +48,15 @@ This command will run our services using the docker-compose.yml file located in 
 
 If everything starts correctly you should see a bunch of Spring Boot information fly by on standard out.  At this point all of the services needed for the chapter code examples will be running.
 
+# Run as Standalone applications
+1. Start MongoDB docker image. Can be used docker-compose file and left only Mongo up and running 
+2. Start Config Server through `ConfigurationServerApplication` class
+3. Start Eureka Discovery through `EurekaServerApplication` class but with Active profile `local`
+5. Start License service through `LicenseServiceApplication` class but with Active profile `local`
+6. Start Organization service through `OrganizationServiceApplication` class but with Active profile `local`
+7. Use the REST requests from [Postman](Final/Postman)
+
+
 # Database
 You can find the database script as well in the docker directory.
 
