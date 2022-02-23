@@ -48,7 +48,7 @@ If everything starts correctly you should see a bunch of Spring Boot information
 1. Start MongoDB docker image. Can be used docker-compose file and left only Mongo up and running 
 2. Start Config Server though `ConfigurationServerApplication` class
 3. Start License service but with Active profile `local`
-4. Use the REST requests from [Postman](/Postman)
+4. Use the REST requests from [Postman](Postman)
 
 # Database
 You can find the database script as well in the docker directory.
