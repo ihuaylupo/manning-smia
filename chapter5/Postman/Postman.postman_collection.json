@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "a2c6a9bb-9d13-49b5-b1ef-ca23a0ad622a",
+		"name": "Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cloud Config defalt profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config DEV profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/dev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config Local profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"local"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config - Encrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "postgres"
+				},
+				"url": {
+					"raw": "http://localhost:8071/encrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"encrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config - Decrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "efe477ef574f5e64b05aa8f2f220aecfbc6fdc99c3919c4539f159daadc2a5b7"
+				},
+				"url": {
+					"raw": "http://localhost:8071/decrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"decrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "License Service - list env",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/env",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"env"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "License Service - Get License",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/d898a142-de44-466c-8c88-9ceb2c2429d3/license/f2a9c9d4-d2c0-44fa-97fe-724d77173c62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"d898a142-de44-466c-8c88-9ceb2c2429d3",
+						"license",
+						"f2a9c9d4-d2c0-44fa-97fe-724d77173c62"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
