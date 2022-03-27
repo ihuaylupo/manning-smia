@@ -1,24 +1,27 @@
+
 spring:
   application:
     name: config-server
   profiles:
-    active:
-    - native, git
+    active: native, git # vault
   cloud:
     config:
       server:
+        encrypt.enabled: false
         native:
           search-locations: classpath:/config
-        #git:
-         # uri: https://github.com/ihuaylupo/config.git
-          #searchPaths: licensingservice
-    
+        git:
+          uri: https://github.com/klimtever/config.git
+          searchPaths: licensingservice
+        # vault:
+        #   port: 8200
+        #   host: 127.0.0.1
+        #   kvVersion: 2
 server:
   port: 8071
   
 encrypt:
   key: fje83Ki8403Iod87dne7Yjsl3THueh48jfuO9j4U2hf64Lo 
-
 
 #Enable all Spring Boot Actuator endpoints.
 management:
