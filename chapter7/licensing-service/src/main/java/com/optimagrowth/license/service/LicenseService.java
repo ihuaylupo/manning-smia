@@ -114,6 +114,7 @@ public class LicenseService {
 
 	}
 
+	// @CircuitBreaker(name = "licenseService")	//코드 7-2의 경우 이 애너테이션만 추가한다.
 	@CircuitBreaker(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@RateLimiter(name = "licenseService", fallbackMethod = "buildFallbackLicenseList")
 	@Retry(name = "retryLicenseService", fallbackMethod = "buildFallbackLicenseList")
