@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "e29dd0f3-8123-4b77-b721-f78980f80627",
+		"name": "Spring Microservices in Action 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Chapter-1 GET Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello/illary?lastName=haylupo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello",
+						"illary"
+					],
+					"query": [
+						{
+							"key": "lastName",
+							"value": "haylupo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-3 GET /license",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-3 POST /license",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\": \"1231241234\",\n    \"description\": \"Software product\",\n    \"productName\": \"Office\",\n    \"licenseType\": \"Perpetual\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-3 PUT /license",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"licenseId\": \"1231241234\",\n    \"description\": \"This is a license\",\n    \"productName\": \"Office\",\n    \"licenseType\": \"Perpetual\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/sdafasdfasdfd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"sdafasdfasdfd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-3 DELETE /license",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "en",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/optimaGrowth/license/0235431845",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"optimaGrowth",
+						"license",
+						"0235431845"
+					],
+					"query": [
+						{
+							"key": "Accept",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-3 GET /actuator/health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-5 GET /licensing-service/dev",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/dev ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"dev "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-5 POST /actuator/refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-5 GET Vault /licensing/dev",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Config-Token",
+						"value": "myroot",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/dev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-5 POST /decrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "f4609209a3e75d8ac79a5e3063ce151c2cd28aa431170bb06974b9421e807b6a"
+				},
+				"url": {
+					"raw": "http://localhost:8071/decrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"decrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-5 POST /encrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "postgres"
+				},
+				"url": {
+					"raw": "http://localhost:8071/encrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"encrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-5 GET /organization/{orgid}/license/{licenseid}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e839ee96-28de-4f67-bb79-870ca89743a0/license/279709ff-e6d5-4a54-8b55-a5c37542025b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e839ee96-28de-4f67-bb79-870ca89743a0",
+						"license",
+						"279709ff-e6d5-4a54-8b55-a5c37542025b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-6 GET /eureka/apps/organization-service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8070/eureka/apps/organization-service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"eureka",
+						"apps",
+						"organization-service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-6 GET /eureka/apps/organization-service Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8070/eureka/apps/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"eureka",
+						"apps",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-6 GET /v1/organization/{}/license/{}/feign",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e839ee96-28de-4f67-bb79-870ca89743a0/license/279709ff-e6d5-4a54-8b55-a5c37542025b/feign",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e839ee96-28de-4f67-bb79-870ca89743a0",
+						"license",
+						"279709ff-e6d5-4a54-8b55-a5c37542025b",
+						"feign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-7 circuit breaker",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "tmx-correlation-id",
+						"value": "TEST-CORRELATION-ID",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e/license/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+						"license",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-8 GET /organization-service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization-service/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization-service",
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-8 GET /actuator/gateway/routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/actuator/gateway/routes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"actuator",
+						"gateway",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-8 GET Gateway Configurations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/gateway-server/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"gateway-server",
+						"default"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
