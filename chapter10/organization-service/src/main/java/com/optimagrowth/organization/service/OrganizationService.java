@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.optimagrowth.organization.events.source.SimpleSourceBean;
 import com.optimagrowth.organization.model.Organization;
 import com.optimagrowth.organization.repository.OrganizationRepository;
+import com.optimagrowth.organization.utils.ActionEnum;
 
 @Service
 public class OrganizationService {
@@ -25,26 +26,26 @@ public class OrganizationService {
 
     public Organization findById(String organizationId) {
     	Optional<Organization> opt = repository.findById(organizationId);
-    	simpleSourceBean.publishOrganizationChange("GET", organizationId);
+    	simpleSourceBean.publishOrganizationChange(ActionEnum.GET, organizationId);
         return (opt.isPresent()) ? opt.get() : null;
     }	
 
     public Organization create(Organization organization){
     	organization.setId( UUID.randomUUID().toString());
         organization = repository.save(organization);
-        simpleSourceBean.publishOrganizationChange("SAVE", organization.getId());
+        simpleSourceBean.publishOrganizationChange(ActionEnum.CREATED, organization.getId());
         return organization;
 
     }
 
     public void update(Organization organization){
     	repository.save(organization);
-        simpleSourceBean.publishOrganizationChange("UPDATE", organization.getId());
+        simpleSourceBean.publishOrganizationChange(ActionEnum.UPDATED, organization.getId());
     }
 
     public void delete(String organizationId){
     	repository.deleteById(organizationId);
-    	simpleSourceBean.publishOrganizationChange("DELETE", organizationId);
+    	simpleSourceBean.publishOrganizationChange(ActionEnum.DELETED, organizationId);
     }
     
     @SuppressWarnings("unused")

@@ -8,6 +8,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
 import com.optimagrowth.organization.events.model.OrganizationChangeModel;
+import com.optimagrowth.organization.utils.ActionEnum;
 import com.optimagrowth.organization.utils.UserContext;
 
 @Component
@@ -21,11 +22,11 @@ public class SimpleSourceBean {
         this.source = source;
     }
 
-    public void publishOrganizationChange(String action, String organizationId){
+    public void publishOrganizationChange(ActionEnum action, String organizationId){
        logger.debug("Sending Kafka message {} for Organization Id: {}", action, organizationId);
         OrganizationChangeModel change =  new OrganizationChangeModel(
                 OrganizationChangeModel.class.getTypeName(),
-                action,
+                action.toString(),
                 organizationId,
                 UserContext.getCorrelationId());
 
