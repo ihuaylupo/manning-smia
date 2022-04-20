@@ -23,7 +23,7 @@ node {
       archiveArtifacts 'configserver/target/*.jar'
    }
     stage('Build image') {
-        sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock -Dproject.artifactId=configserver -Ddocker.image.version=latest dockerfile:build"
+        sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock -Dproject.artifactId=configserver -Ddocker.image.version=chapter12 dockerfile:build"
     }
     stage('Push image') {
         docker.withRegistry('758417428849.dkr.ecr.ap-northeast-2.amazonaws.com', 'ecr:us-east-2:ecr-user') {
