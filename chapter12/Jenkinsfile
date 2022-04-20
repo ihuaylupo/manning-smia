@@ -27,7 +27,7 @@ node {
     }
     stage('Push image') {
         docker.withRegistry('758417428849.dkr.ecr.ap-northeast-2.amazonaws.com', 'ecr:us-east-2:ecr-user') {
-            sh "docker push 758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock/configserver:latest"
+            sh "docker push 758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock/configserver:chapter12"
         }
     }
    stage('Kubernetes deploy') {
