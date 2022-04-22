@@ -26,7 +26,7 @@ node {
         sh "'${mvnHome}/bin/mvn' -Ddocker.image.prefix=758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock -Dproject.artifactId=configserver -Ddocker.image.version=chapter12 dockerfile:build"
     }
     stage('Push image') {
-        docker.withRegistry('758417428849.dkr.ecr.ap-northeast-2.amazonaws.com', 'ecr:ap-northeast-2:ecr-user') {
+        docker.withRegistry('https://758417428849.dkr.ecr.ap-northeast-2.amazonaws.com', 'ecr:ap-northeast-2:ecr-user') {
             sh "docker push 758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock/configserver:chapter12"
         }
     }
