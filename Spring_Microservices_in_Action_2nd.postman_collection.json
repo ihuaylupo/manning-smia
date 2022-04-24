@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/hello/illary?lastName=haylupo",
+					"raw": "http://localhost:8080/hello/Illary?lastName=Huaylupo",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -19,12 +19,12 @@
 					"port": "8080",
 					"path": [
 						"hello",
-						"illary"
+						"Illary"
 					],
 					"query": [
 						{
 							"key": "lastName",
-							"value": "haylupo"
+							"value": "Huaylupo"
 						}
 					]
 				}
@@ -136,7 +136,7 @@
 				"header": [
 					{
 						"key": "Accept-Language",
-						"value": "en",
+						"value": "e",
 						"type": "text"
 					}
 				],
@@ -191,7 +191,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8071/licensing-service/dev ",
+					"raw": "http://localhost:8071/licensing-service/default",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -199,7 +199,7 @@
 					"port": "8071",
 					"path": [
 						"licensing-service",
-						"dev "
+						"default"
 					]
 				}
 			},
@@ -492,6 +492,456 @@
 					"path": [
 						"gateway-server",
 						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-9 POST /token with illary",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "KJW4qaqiB4nBoOpWY0xYuxVBfcSZ8bDR",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ostock",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "illary.huaylupo",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "illary.huaylupo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://keycloak:8080/auth/realms/spmia-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"keycloak"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"spmia-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "illary.huaylupo",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-9 POST /token with John",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "KJW4qaqiB4nBoOpWY0xYuxVBfcSZ8bDR",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ostock",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"value": "illary.huaylupo",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "john.carnell",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://keycloak:8080/auth/realms/spmia-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"keycloak"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"spmia-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "illary.huaylupo",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-9 GET /organization with token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": ".eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJndXFOdEpyN3YxbFpGOGxxeU95NHhvRUlDT25Ha2MxSWNvMXF5TVJWd2ZBIn0.eyJleHAiOjE2NTAwMTE2MjAsImlhdCI6MTY1MDAxMTMyMCwianRpIjoiM2NhMjJhZWYtNDNkYS00OTgyLWFmZDUtMTNkNGFhODk5ODdkIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvYXV0aC9yZWFsbXMvc3BtaWEtcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNWY2YjlmNGYtM2FjOC00ZmJkLWI1MjktZDQzNGY2YzVmNTdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3N0b2NrIiwic2Vzc2lvbl9zdGF0ZSI6ImNjODQ4NTU3LWRiMDctNGE4NS1hOTQ4LTgzMjcxMmE1YzAxYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNwbWlhLXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iLCJvc3RvY2stdXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im9zdG9jayI6eyJyb2xlcyI6WyJVU0VSIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiJjYzg0ODU1Ny1kYjA3LTRhODUtYTk0OC04MzI3MTJhNWMwMWEiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiam9obi5jYXJuZWxsIn0.VX2oc_uPJ5Gsa2t9Ydfymnkt0ac_zjoO_vd37r9TScQDWANL6ftItoA_8eBfZqYGVCqe9sLYe_XO8Q6hiZq3SwgUXx0QBY9H3gwrtF_Ay99j4b4TFBjglkCM17YJQs4n2c-jdWZdGa8oTdcOIzkaNG36WrlqpRFBbzDvCMs0dmeLcmOtLt9Vw37wY6AMtGjDAU7YsI2IcYSAqxVjVDEUHxP1rOs_AlffaG6dKFAUA1MioCDT2jUZHyXCT1mp61GtZEdC9nmc9nklqOzbPBt6UsvpDv9bXsFa9T3yzBSFXHNL9otMBJICqoEM6cxMk8KqxtKksDrQi2mWogixa5AqcQ.K-djMPUgVQ2o4LsSN5tpQEN7oflxPERnud6D66sydXmN2IncUbhpdc6TUT0x7mfMuDH3ghHmCfl8K8027pLb_GPDVWP-Y3BGzoLcqZhCgPHUzmSPY0f6yQtgK96CnC6dQ2yW6CvVoDDfBSLdidGXR8MWWJeA91jmjMpMR0E9PL11hj4DR5qfpcW_gc2a8OTZAc0-7AO0SKWsZUzctox3AOHDlGSDAvyUX2m2QEO_r6J17imdZMMxogeBfwMwl0r4Imk1Y9SIGiZyQroD7IYRa-DWaGfaycdyhzz1jsjleJINpnPheqzqF0id9CcWPBBkuTHyR7lumFh3Qzvjc97dtg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-9 DELETE /organization with John's token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJndXFOdEpyN3YxbFpGOGxxeU95NHhvRUlDT25Ha2MxSWNvMXF5TVJWd2ZBIn0.eyJleHAiOjE2NTAwMTE2MjAsImlhdCI6MTY1MDAxMTMyMCwianRpIjoiM2NhMjJhZWYtNDNkYS00OTgyLWFmZDUtMTNkNGFhODk5ODdkIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvYXV0aC9yZWFsbXMvc3BtaWEtcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNWY2YjlmNGYtM2FjOC00ZmJkLWI1MjktZDQzNGY2YzVmNTdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3N0b2NrIiwic2Vzc2lvbl9zdGF0ZSI6ImNjODQ4NTU3LWRiMDctNGE4NS1hOTQ4LTgzMjcxMmE1YzAxYSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNwbWlhLXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iLCJvc3RvY2stdXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im9zdG9jayI6eyJyb2xlcyI6WyJVU0VSIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiJjYzg0ODU1Ny1kYjA3LTRhODUtYTk0OC04MzI3MTJhNWMwMWEiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiam9obi5jYXJuZWxsIn0.VX2oc_uPJ5Gsa2t9Ydfymnkt0ac_zjoO_vd37r9TScQDWANL6ftItoA_8eBfZqYGVCqe9sLYe_XO8Q6hiZq3SwgUXx0QBY9H3gwrtF_Ay99j4b4TFBjglkCM17YJQs4n2c-jdWZdGa8oTdcOIzkaNG36WrlqpRFBbzDvCMs0dmeLcmOtLt9Vw37wY6AMtGjDAU7YsI2IcYSAqxVjVDEUHxP1rOs_AlffaG6dKFAUA1MioCDT2jUZHyXCT1mp61GtZEdC9nmc9nklqOzbPBt6UsvpDv9bXsFa9T3yzBSFXHNL9otMBJICqoEM6cxMk8KqxtKksDrQi2mWogixa5AqcQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-9 DELETE /organization with Illary's token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJndXFOdEpyN3YxbFpGOGxxeU95NHhvRUlDT25Ha2MxSWNvMXF5TVJWd2ZBIn0.eyJleHAiOjE2NTAwMTE3NzQsImlhdCI6MTY1MDAxMTQ3NCwianRpIjoiMzk5M2YxZTMtNjUyMS00MzRmLWIzODgtZTU5Yjc0MWFhMDRhIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvYXV0aC9yZWFsbXMvc3BtaWEtcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYjdjNmM0NTMtYTg2ZC00YWVmLThmNjAtMDVhMzY1NzA0OWJkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3N0b2NrIiwic2Vzc2lvbl9zdGF0ZSI6IjI5NGM4YWQ4LTk2Y2UtNGZmOS04ZWM0LWYzOGQ4NGVkZmViOCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNwbWlhLXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iLCJvc3RvY2stYWRtaW4iXX0sInJlc291cmNlX2FjY2VzcyI6eyJvc3RvY2siOnsicm9sZXMiOlsiQURNSU4iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjI5NGM4YWQ4LTk2Y2UtNGZmOS04ZWM0LWYzOGQ4NGVkZmViOCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJpbGxhcnkuaHVheWx1cG8ifQ.KeYXprq2yROe9ZkOdTVE389oBkkLtojBki1-16I_kqHKOO8W5RCCiiRIwfCVvN4VzNI57xkT2B4JGBwemnmhPW7dQCDA3X6ivBAluDCsLhpNcKwVUZ_5Bfx-2RyhDXo7mscNI5cfff4--x8B12gqDtwhBhByFzYSgR0-ytPZMdnQHCh4CqsJaQVyM3AiDLpndgjOb-GqggJKfogyDUEybIxvXiUZA3up9gbvDcILYZPVid_HL1wMx2ismG_RDyDZCqLPIS7nwuBdMYTOPBG_tCDfiIVZTLap2liIhbL4dG7TxmeRLvjUaPgLxjEgvKTsIgyH_JJ-iBfPRHxjii61RQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-9 GET /license",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJndXFOdEpyN3YxbFpGOGxxeU95NHhvRUlDT25Ha2MxSWNvMXF5TVJWd2ZBIn0.eyJleHAiOjE2NTAwMTMwMDMsImlhdCI6MTY1MDAxMjcwMywianRpIjoiYjEyZjk2MTctMWY4ZS00MWRmLTk5ZDQtYmM1MWE2YzRlMmFlIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvYXV0aC9yZWFsbXMvc3BtaWEtcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNWY2YjlmNGYtM2FjOC00ZmJkLWI1MjktZDQzNGY2YzVmNTdkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3N0b2NrIiwic2Vzc2lvbl9zdGF0ZSI6IjhiNmU2OGQxLTc5MWYtNGUzNC05NzZkLWRiNzg4ZjNiMDIxNiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNwbWlhLXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iLCJvc3RvY2stdXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im9zdG9jayI6eyJyb2xlcyI6WyJVU0VSIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI4YjZlNjhkMS03OTFmLTRlMzQtOTc2ZC1kYjc4OGYzYjAyMTYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiam9obi5jYXJuZWxsIn0.lsKadoJVUmdFNd6wZD6CB10GrmZq5FTRsqRIPgzHJUDudYOje86WwjaaedG3aJRK0UmkplNr6auMoYOqMk4jtHB0E7WfzH7gporwilYyEGfIuBg5Z9j4sDs7C0Pl4tRTOiXlbLU21uLN2yh1uQrdPW9jG_bE6UNuapQogigrGsPPfAYncsovdw75ted3fDAX6nZEe2RGKu1kVdRwh2NtKMDBncbJ9pmaHrjWiWOTl_vCH5UyC2D9HvbEg-TSNeip-J2cgb7I6Sdr-_Q6iIwdlBuGadA2JW_RHOUgWr2MJRxtT5oT28BoD1Q4_Yp8S_gSvPi-FXQoJH1aMVlOisnCdA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/license/v1/organization/d898a142-de44-466c-8c88-9ceb2c2429d3/license/f2a9c9d4-d2c0-44fa-97fe-724d77173c62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"license",
+						"v1",
+						"organization",
+						"d898a142-de44-466c-8c88-9ceb2c2429d3",
+						"license",
+						"f2a9c9d4-d2c0-44fa-97fe-724d77173c62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-10 POST /organization",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"Ostock2\",\n\"contactName\":\"Illary Huaylupo\", \n\"contactEmail\":\"illaryhs@gmail.com\", \n\"contactPhone\":\"888888888\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-10 GET /organization with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/d989f37d-9a59-4b59-b276-2c79005ea0d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						"d989f37d-9a59-4b59-b276-2c79005ea0d9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-10 GET /license",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/license/v1/organization/e839ee96-28de-4f67-bb79-870ca89743a0/license/279709ff-e6d5-4a54-8b55-a5c37542025b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"license",
+						"v1",
+						"organization",
+						"e839ee96-28de-4f67-bb79-870ca89743a0",
+						"license",
+						"279709ff-e6d5-4a54-8b55-a5c37542025b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-11 GET /organization",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/e839ee96-28de-4f67-bb79-870ca89743a0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						"e839ee96-28de-4f67-bb79-870ca89743a0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chapter-11 GET /organization/license",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/license/v1/organization/d898a142-de44-466c-8c88-9ceb2c2429d3/license/f2a9c9d4-d2c0-44fa-97fe-724d77173c62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"license",
+						"v1",
+						"organization",
+						"d898a142-de44-466c-8c88-9ceb2c2429d3",
+						"license",
+						"f2a9c9d4-d2c0-44fa-97fe-724d77173c62"
 					]
 				}
 			},
