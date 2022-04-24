@@ -34,7 +34,7 @@ spec:
           value: IMSYMMETRIC
         - name: PROFILE
           value: dev
-        image: 81XXXXXXXX3.dkr.ecr.us-east-2.amazonaws.com/ostock/authentication-service:latest
+        image: 758417428849.dkr.ecr.ap-northeast-2.amazonaws.com/ostock/authentication-service:latest
         imagePullPolicy: ""
         name: authentication-service
         ports:
