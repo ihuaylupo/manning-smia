@@ -101,17 +101,17 @@ services:
       - backend
 
   keycloak:
-    image: jboss/keycloak
+    image: alemairebe/keycloak:14.0.0
     restart: always
     environment:
       KEYCLOAK_VERSION: 6.0.1
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
     volumes:
-        - ./realm-export.json:/opt/jboss/keycloak/realm-export.json
+        - ./realm-export.json:/opt/alemairebe/keycloak/realm-export.json
     command:
       - "-b 0.0.0.0"
-      - "-Dkeycloak.import=/opt/jboss/keycloak/realm-export.json"
+      - "-Dkeycloak.import=/opt/alemairebe/keycloak/realm-export.json"
       - "-Dkeycloak.profile.feature.scripts=enabled"
       - "-Dkeycloak.profile.feature.upload_scripts=enabled"
     ports:

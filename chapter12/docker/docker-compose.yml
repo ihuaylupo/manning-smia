@@ -70,7 +70,7 @@ services:
         aliases:
           - "gateway"
   zookeeper:
-    image: wurstmeister/zookeeper:latest
+    image: zookeeper:3.7.0
     container_name: zookeeper
     ports:
       - 2181:2181
@@ -167,7 +167,7 @@ services:
     networks:
       - backend
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
     container_name: elasticsearch
     environment:
       - node.name=elasticsearch
@@ -189,7 +189,7 @@ services:
         aliases:
           - "elasticsearch"
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.7.0
+    image: docker.elastic.co/kibana/kibana:7.13.0
     container_name: kibana
     environment:
       ELASTICSEARCH_URL: "http://elasticsearch:9300"
@@ -200,7 +200,7 @@ services:
         aliases:
           - "kibana"
   logstash:
-    image: docker.elastic.co/logstash/logstash:7.7.0
+    image: docker.elastic.co/logstash/logstash:7.12.0
     container_name: logstash
     command: logstash -f /etc/logstash/conf.d/logstash.conf
     volumes:
@@ -212,7 +212,7 @@ services:
         aliases:
           - "logstash"
   zipkin: 
-    image: openzipkin/zipkin 
+    image: openzipkin/zipkin:2.23 
     container_name: zipkin
     depends_on: 
       - elasticsearch
