@@ -16,7 +16,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/ihuaylupo/manning-smia
+$ git clone https://github.com/klimtever/manning-smia2
 
 # Go into the repository
 $ cd chapter4/licensing-service

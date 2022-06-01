@@ -15,10 +15,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Mave
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/ihuaylupo/manning-smia-chapter1
+$ git clone https://github.com/klimtever/manning-smia2
 
 # Go into the repository
-$ cd SimpleApplication
+$ cd chapter1/simple-application
 
 # Install dependencies
 $ mvn install
