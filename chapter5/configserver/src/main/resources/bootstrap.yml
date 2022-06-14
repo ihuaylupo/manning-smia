@@ -3,15 +3,25 @@ spring:
     name: config-server
   profiles:
     active:
-    - native, git
+#      - vault
+     - native
+#    - git
   cloud:
     config:
       server:
+#        vault:
+#          port: 8200
+#          host: 127.0.0.1
+#          kvVersion: 2
         native:
           search-locations: classpath:/config
-        #git:
-         # uri: https://github.com/ihuaylupo/config.git
-          #searchPaths: licensingservice
+#        git:
+#          uri: https://github.com/ihuaylupo/config.git
+#          searchPaths: licensingservice
+#        vault:
+#          port: 8200
+#          host: 127.0.0.1
+#          kvVersion: 2
     
 server:
   port: 8071

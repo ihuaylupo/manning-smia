@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "d3ddf948-7d37-420a-bb58-3d09edd0f8f5",
+		"name": "Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cloud Config defalt profile - Licensing Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"default"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config DEV profile - Licensing Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/dev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config Local profile - Licensing Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/licensing-service/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"licensing-service",
+						"local"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Config Local profile - Organization Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8071/organization-service/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8071",
+					"path": [
+						"organization-service",
+						"local"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Gateway - routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/actuator/gateway/routes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"actuator",
+						"gateway",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Gateway - routes refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/actuator/gateway/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"actuator",
+						"gateway",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cloud Gateway - Get Organization",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8072/organization/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8072",
+					"path": [
+						"organization",
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Organization",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/organization/e6a625cc-718b-48c2-ac76-1dfdff9a531e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"organization",
+						"e6a625cc-718b-48c2-ac76-1dfdff9a531e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

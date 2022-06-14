@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: eureka-server-local
+  cloud:
+    config:
+      uri: http://localhost:8071
+    loadbalancer:
+      ribbon:
+        enabled: false
